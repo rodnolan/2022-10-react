@@ -8,9 +8,18 @@ function App() {
   return <>
     <MyFirstComponent />
     <SimpleComponent />
-    <SimpleList />
-    <SimpleListAsJSX />
-    <ComponentWithProps  attr2="second" attr1="first" attr3="third" />
+    {/* <SimpleList />
+    <SimpleListAsJSX /> */}
+
+
+
+    <ComponentWithProps attr1="first" attr2="second" attr3="third" />
+    <ComponentWithProps attr1="first" />
+    <ComponentWithProps attr1='lkahslkfhdaslk'  />
+
+
+    {/* <ComponentWithProps               attr2="second" attr3="third" />
+    <ComponentWithProps /> */}
 
 {/*
 

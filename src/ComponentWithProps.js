@@ -13,13 +13,15 @@ import PropTypes from 'prop-types';
 
 export const ComponentWithProps = ({attr1, attr2, attr3}) => {
 
-    // if (!attr1) {
-    //     return <p>please give me attr1</p>
-    // }
-    return <>
-        <p>this is a custom component that accepts props: {attr1} {attr2} {attr3}</p>
-        <p>(but we don't refer to them as "props" literally, we use object destructuring instead)</p>
-    </>
+    if (!attr1) {
+        return <p>please give me attr1</p>
+    } else {
+
+        return <>
+            <p>this is a custom component that accepts props: {attr1} {attr2} {attr3}</p>
+            <p>(but we don't refer to them as "props" literally, we use object destructuring instead)</p>
+        </>
+    }
 
 }
 

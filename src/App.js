@@ -1,9 +1,11 @@
 import React from 'react';
+import { BlackBoxWrapper } from './BlackBoxWrapper';
 import { ComponentWithProps } from './ComponentWithProps';
 import { Difference } from './Difference';
 import asdbc from './logo.svg';
 // import './App.css';
 import { MyFirstComponent } from './MyFirstComponent';
+import { MyList } from './MyList';
 import { Product } from './Product';
 import { Sum } from './Sum';
 
@@ -11,28 +13,37 @@ function App() {
   return <>
     <MyFirstComponent />
     {/* <SimpleComponent /> */}
-    {/* <SimpleList />
-    <SimpleListAsJSX /> */}
+    {/* <SimpleList /> */}
+    {/* <SimpleListAsJSX /> */}
 
 
+  <BlackBoxWrapper>
+      <ComponentWithProps attr1="first" attr2="second" attr3="third" />
+      <ComponentWithProps attr1="first" />
+      <ComponentWithProps attr1='lkahslkfhdaslk'  />
+  </BlackBoxWrapper>
 
-    <ComponentWithProps attr1="first" attr2="second" attr3="third" />
-    <ComponentWithProps attr1="first" />
-    <ComponentWithProps attr1='lkahslkfhdaslk'  />
+    {/* <ComponentWithProps               attr2="second" attr3="third" />
+    <ComponentWithProps /> */}
 
     <Sum num1={123} num2={321} />
 
     {/* <Sum n1={123} n2={321} /> */}
     {/* <Sum num1="123" num2="321" /> */}
 
-    <Product num1={12} num2={3} />
+    <BlackBoxWrapper>
+      <Product num1={12} num2={3} />
+      <Difference num1={10} num2={5} />
+      <Difference num1={5} num2={10} />
+    </BlackBoxWrapper>
 
-    <Difference num1={10} num2={5} />
-    <Difference num1={5} num2={10} />
-
-
-    {/* <ComponentWithProps               attr2="second" attr3="third" />
-    <ComponentWithProps /> */}
+<MyList listItems={[
+  'item a',
+  'item b',
+  'ITEM C',
+  'item d',
+  'item e',
+]} />
 
 {/*
 

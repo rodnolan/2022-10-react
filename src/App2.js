@@ -8,34 +8,32 @@ export const App2 = () => {
     ln: 'N',
     mn: 'D'
   }
-
   const [meState, setMeState] = useState(me);
 
-  return <>
+  const firstNameUpdater = (event) => {
+    console.table(meState);
+    setMeState(
+      {
+        ...meState,
+        fn: 'Mickey',
+        mn: 'Theodore'
+      }
+    ); // me.fn = 'Mickey'; // mutate React state
+    console.table(meState);
+  }
 
-    <button onClick={
-      () => {
-        console.table(meState);
-        setMeState(
-          {
-            ...meState,
-            fn: 'Mickey',
-            mn: 'Theodore'
-          }
-        ); // me.fn = 'Mickey'; // mutate React state
-        console.table(meState);
-      }
-    }>change first name of me that React DOES NOT ignore</button>
-    <button onClick={
-      () => {
-        console.table(meState);
-        setMeState({
-          ...meState,
-          ln: 'Mouse'
-        }); // me.ln = 'Mouse'; // mutate React state
-        console.table(meState);
-      }
-    }>change last name of me that React DOES NOT ignore</button>
+  function lastNameUpdater() {
+    console.table(meState);
+    setMeState({
+      ...meState,
+      ln: 'Mouse'
+    }); // me.ln = 'Mouse'; // mutate React state
+    console.table(meState);
+  }
+
+  return <>
+    <button onClick={firstNameUpdater}>change first name of me that React DOES NOT ignore</button>
+    <button onClick={lastNameUpdater}>change last name of me that React DOES NOT ignore</button>
     {/* <p>{meState.fn} {meState.mn} {meState.ln}</p> */}
     <Person name={meState} />
 

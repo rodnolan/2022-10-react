@@ -9,10 +9,13 @@ import {Component} from "react";
 export class Product extends Component {
 
     render() {
-        const {num1, num2} = this.props;
-        return <p>
-            The product of the two numbers is {num1 * num2}.
-        </p>
+      // let {num1, num2} = this.props;
+
+      // PROPS ARE IMMUTABLE... DON'T TRY THIS
+      // this.props.num1=13;
+      return <p>
+        The product of the two numbers is {this.props.num1 * this.props.num2}.
+      </p>
         // return <p>
         //     The product of the two numbers is {this.props.num1 * this.props.num2}.
         // </p>

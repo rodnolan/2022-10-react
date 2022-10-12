@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { App2 } from './App2';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
+// import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <ReactChallenge1 />
+    {/* <ReactChallenge1 /> */}
+    <App2 />
   </React.StrictMode>
 );
 

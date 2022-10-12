@@ -53,22 +53,10 @@ export const App2 = () => {
 
     <EditablePerson
       name={meState}
-      fnUpdaterFn={(str) => {
+      nameUpdaterFn={(propName, propValue) => {
         setMeState({
           ...meState,
-          fn: str
-        })
-      }}
-      mnUpdaterFn={(str) => {
-        setMeState({
-          ...meState,
-          mn: str
-        })
-      }}
-      lnUpdaterFn={(str) => {
-        setMeState({
-          ...meState,
-          ln: str
+          [propName]: propValue
         })
       }}
     />

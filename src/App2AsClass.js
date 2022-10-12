@@ -1,5 +1,5 @@
 import {Component} from "react";
-import { Person } from "./Person";
+import { ReadOnlyPerson } from "./Person";
 
 export class App2AsClass extends Component {
 
@@ -41,7 +41,7 @@ export class App2AsClass extends Component {
 
       <button onClick={this.lastNameUpdater}>update ln</button>
 
-      <Person name={this.state}/>;
+      <ReadOnlyPerson name={this.state}/>;
     </>
   }
 

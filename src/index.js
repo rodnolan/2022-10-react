@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App2AsClass } from './App2AsClass';
 import './index.css';
 // import App from './App';
-// import { App2 } from './App2';
+import { App2 } from './App2';
+// import { App2AsClass } from './App2AsClass';
 import reportWebVitals from './reportWebVitals';
 // import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
 
@@ -12,8 +12,8 @@ root.render(
   <React.StrictMode>
     {/* <ReactChallenge1 /> */}
     {/* <App /> */}
-    {/* <App2 /> */}
-    <App2AsClass />
+    <App2 />
+    {/* <App2AsClass /> */}
   </React.StrictMode>
 );
 

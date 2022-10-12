@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Person } from "./Person";
+import { EditablePerson, ReadOnlyPerson } from "./Person";
 
 export const App2 = () => {
 
@@ -35,9 +35,46 @@ export const App2 = () => {
     <button onClick={firstNameUpdater}>change first name of me that React DOES NOT ignore</button>
     <button onClick={lastNameUpdater}>change last name of me that React DOES NOT ignore</button>
     {/* <p>{meState.fn} {meState.mn} {meState.ln}</p> */}
-    <Person name={meState} />
+    <ReadOnlyPerson name={meState} />
+    {/*
+      props = {
+        name: {
+          fn: '',
+          mn: '',
+          ln: '',
+        },
+        num1: 4
+      }
+      ReadOnlyPerson(props)
+
+    */}
 
     <hr />
+
+    <EditablePerson
+      name={meState}
+      fnUpdaterFn={(str) => {
+        setMeState({
+          ...meState,
+          fn: str
+        })
+      }}
+      mnUpdaterFn={(str) => {
+        setMeState({
+          ...meState,
+          mn: str
+        })
+      }}
+      lnUpdaterFn={(str) => {
+        setMeState({
+          ...meState,
+          ln: str
+        })
+      }}
+    />
+
+
+    {/* <hr />
     <p>{me.fn} {me.ln}</p>
     <button onClick={
       () => {
@@ -45,7 +82,7 @@ export const App2 = () => {
         me.fn = 'Mickey'; // mutate data
         console.table(me);
       }
-    }>change first name of me that React ignores</button>
+    }>change first name of me that React ignores</button> */}
 
     {/* <button click="alert('btn was clicked')">change first name</button> */}
   </>

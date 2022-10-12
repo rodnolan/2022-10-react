@@ -7,7 +7,8 @@ export const ReactChallenge1 = () => {
       id: 1,
       firstName: 'Kermit',
       middleName: 'The',
-      lastName: 'Frog'
+      lastName: 'Frog',
+      age: 100
     },
     {
       id: 2,

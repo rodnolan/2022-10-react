@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-export const TableCell = ({ contents }) => <td>{contents}</td>;
+export const TableCell = ({ contents }) => <td>{contents && String(contents)}</td>;
 
 TableCell.propTypes = {
-    contents: PropTypes.any
+  contents: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
 };

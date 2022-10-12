@@ -16,12 +16,14 @@ export const TableBody = ({ rows, personPropsList }) => (
 
 TableBody.propTypes = {
   rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      firstName: PropTypes.string.isRequired,
-      middleName: PropTypes.string,
-      lastName: PropTypes.string.isRequired,
-    })
+    PropTypes.shape(
+      {
+        id: PropTypes.number.isRequired,
+        firstName: PropTypes.string.isRequired,
+        middleName: PropTypes.string,
+        lastName: PropTypes.string.isRequired,
+      }
+    )
   ).isRequired,
   personPropsList: PropTypes.arrayOf(
     PropTypes.string

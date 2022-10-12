@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
-import { App2 } from './App2';
+// import { App2 } from './App2';
 // import { App2AsClass } from './App2AsClass';
 import reportWebVitals from './reportWebVitals';
+import { ReactChallenge2 } from './challenges/day7/ReactChallenge2';
 // import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <ReactChallenge1 /> */}
+    <ReactChallenge2 />
     {/* <App /> */}
-    <App2 />
+    {/* <App2 /> */}
     {/* <App2AsClass /> */}
   </React.StrictMode>
 );

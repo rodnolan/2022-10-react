@@ -7,14 +7,29 @@ export const ReadOnlyPerson = (props) => <p>
 
 export const EditablePerson = ({ name, nameUpdaterFn }) => {
 
-  const fnRef = useRef();
-  const mnRef = useRef();
-  const lnRef = useRef();
+  // const fnRef = useRef();
+  // const mnRef = useRef();
+  // const lnRef = useRef();
+
+  const onChangeHandler = (event) => {
+    // collect the latest keystroke(s)
+    console.log(`${event.target.id}: ${event.target.value}`);
+
+    // make a new object
+    const newPerson = {
+      ...name,
+      [event.target.id]: event.target.value
+    }
+
+    // send to parent
+    nameUpdaterFn(newPerson);
+  }
+
 
   return <div>
     <p>EditablePerson says: Hello, my name is: {name.fn} {name.mn} {name.ln}</p>
 
-    <form onSubmit={(event) => {
+    {/* <form onSubmit={(event) => {
       event.preventDefault();
       const newPerson = {
         fn: fnRef.current.value,
@@ -22,25 +37,20 @@ export const EditablePerson = ({ name, nameUpdaterFn }) => {
         ln: lnRef.current.value,
       }
       nameUpdaterFn(newPerson);
-    }}>
-      <input type="text" placeholder='fn' ref={fnRef} />
-      {/* <button onClick={
-        (event) => {
-          // nameUpdaterFn('fn', 'Bill')
-          nameUpdaterFn('fn', fnRef.current.value)
-        }
-      }>update fn</button> */}
+    }}> */}
+    <form>
+      {/* <input id="fn" type="text" placeholder='fn' ref={fnRef} value={name.fn} onChange={onChangeHandler} /> */}
+      <input id="fn" type="text" placeholder='fn' value={name.fn} onChange={onChangeHandler} />
       <br />
 
-
-      <input type="text" placeholder='mn' ref={mnRef} />
-      {/* <button onClick={(event) => { nameUpdaterFn('mn', mnRef.current.value) }}>update mn</button> */}
+      {/* <input id="mn" type="text" placeholder='mn' ref={mnRef} value={name.mn} onChange={onChangeHandler} /> */}
+      <input id="mn" type="text" placeholder='mn' value={name.mn} onChange={onChangeHandler} />
       <br />
 
-      <input type="text" placeholder='ln' ref={lnRef} />
-      {/* <button onClick={(event) => { nameUpdaterFn('ln', lnRef.current.value) }}>update ln</button> */}
+      {/* <input id="ln" type="text" placeholder='ln' ref={lnRef} value={name.ln} onChange={onChangeHandler} /> */}
+      <input id="ln" type="text" placeholder='ln' value={name.ln} onChange={onChangeHandler} />
       <br />
-      <input type="submit" />
+      {/* <input type="submit" /> */}
     </form>
   </div>
 }

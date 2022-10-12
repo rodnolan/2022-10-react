@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
+// import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const ReadOnlyPerson = (props) => <p>
   ReadOnlyPerson says: Hello, my name is: {props.name.fn} {props.name.mn} {props.name.ln}
@@ -7,6 +8,7 @@ export const ReadOnlyPerson = (props) => <p>
 
 export const EditablePerson = ({ name, nameUpdaterFn }) => {
 
+  const [localName, setLocalName] = useState(name);
   // const fnRef = useRef();
   // const mnRef = useRef();
   // const lnRef = useRef();
@@ -17,17 +19,19 @@ export const EditablePerson = ({ name, nameUpdaterFn }) => {
 
     // make a new object
     const newPerson = {
-      ...name,
+      ...localName,
       [event.target.id]: event.target.value
     }
 
+    setLocalName(newPerson);
+
     // send to parent
-    nameUpdaterFn(newPerson);
+    // nameUpdaterFn(newPerson);
   }
 
 
   return <div>
-    <p>EditablePerson says: Hello, my name is: {name.fn} {name.mn} {name.ln}</p>
+    <p>EditablePerson says: Hello, my name is: {localName.fn} {localName.mn} {localName.ln}</p>
 
     {/* <form onSubmit={(event) => {
       event.preventDefault();
@@ -38,19 +42,22 @@ export const EditablePerson = ({ name, nameUpdaterFn }) => {
       }
       nameUpdaterFn(newPerson);
     }}> */}
-    <form>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      nameUpdaterFn(localName);
+    }}>
       {/* <input id="fn" type="text" placeholder='fn' ref={fnRef} value={name.fn} onChange={onChangeHandler} /> */}
-      <input id="fn" type="text" placeholder='fn' value={name.fn} onChange={onChangeHandler} />
+      <input id="fn" type="text" placeholder='fn' value={localName.fn} onChange={onChangeHandler} />
       <br />
 
       {/* <input id="mn" type="text" placeholder='mn' ref={mnRef} value={name.mn} onChange={onChangeHandler} /> */}
-      <input id="mn" type="text" placeholder='mn' value={name.mn} onChange={onChangeHandler} />
+      <input id="mn" type="text" placeholder='mn' value={localName.mn} onChange={onChangeHandler} />
       <br />
 
       {/* <input id="ln" type="text" placeholder='ln' ref={lnRef} value={name.ln} onChange={onChangeHandler} /> */}
-      <input id="ln" type="text" placeholder='ln' value={name.ln} onChange={onChangeHandler} />
+      <input id="ln" type="text" placeholder='ln' value={localName.ln} onChange={onChangeHandler} />
       <br />
-      {/* <input type="submit" /> */}
+      <input type="submit" />
     </form>
   </div>
 }

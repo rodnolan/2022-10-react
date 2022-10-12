@@ -7,7 +7,8 @@ export const PeopleTable = ({ people }) => {
 
   const propNames = people.length > 0 && Object.keys(people[0]);
   return (
-    propNames?.length > 0 ? (
+    // propNames?.length > 0 ? (
+    propNames && propNames.length > 0 ? (
       <TableWithBorder>
         <TableHead headings={propNames} />
         <TableBody rows={people} personPropsList={propNames} />

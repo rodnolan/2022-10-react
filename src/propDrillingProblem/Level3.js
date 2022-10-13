@@ -8,11 +8,11 @@ export const Level3 = ({ prop1 }) => (
       padding: '1rem'
     }}
   >
-    <p>I'm at Level 4 of the hierarchy and I invoke the component at Level 4</p>
+    <p>I'm at Level 3 of the hierarchy and I invoke the component at Level 4</p>
     <p>
       I, myself, don't need the props I receive but one of my descendents does.
     </p>
 
-    <Level4 />
+    <Level4 prop1={prop1} />
   </div>
 );

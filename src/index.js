@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import { CompWithApiData } from './CompWithApiData';
 import './index.css';
+import { ReduxHome } from './redux/ReduxHome';
+// import { PropDrillingProblemDemo } from './propDrillingProblem/PropDrillingProblemDemo';
 // import App from './App';
 // import { App2 } from './App2';
 // import { App2AsClass } from './App2AsClass';
 import reportWebVitals from './reportWebVitals';
-import { RoutingDemo } from './routing/RoutingDemo';
+// import { RoutingDemo } from './routing/RoutingDemo';
 // import { StylingDemo } from './styling/StylingDemo';
 // import { ReactChallenge2 } from './challenges/day7/ReactChallenge2';
 // import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
+
+import { Provider } from "react-redux";
+import { store } from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +26,14 @@ root.render(
     {/* <App2AsClass /> */}
     {/* <StylingDemo /> */}
     {/* <CompWithApiData /> */}
-    <RoutingDemo />
+    {/* <RoutingDemo /> */}
+    {/* <PropDrillingProblemDemo /> */}
+
+    <Provider store={store}>
+      <ReduxHome />
+    </Provider>
+
+
   </React.StrictMode>
 );
 

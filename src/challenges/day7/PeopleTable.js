@@ -3,15 +3,20 @@ import { TableHead } from './TableHead';
 import { TableBody } from './TableBody';
 import { TableWithBorder } from './TableWithBorder';
 
-export const PeopleTable = ({ people }) => {
+export const PeopleTable = ({ people, setSelectedPerson }) => {
 
   const propNames = people.length > 0 && Object.keys(people[0]);
   return (
-    // propNames?.length > 0 ? (
-    propNames && propNames.length > 0 ? (
+    propNames?.length > 0 ? (
       <TableWithBorder>
-        <TableHead headings={propNames} />
-        <TableBody rows={people} personPropsList={propNames} />
+        <TableHead
+          headings={propNames}
+        />
+        <TableBody
+          rows={people}
+          personPropsList={propNames}
+          handleSelect={setSelectedPerson}
+        />
       </TableWithBorder>
     ) : <p>There is no data to display.</p>
   );

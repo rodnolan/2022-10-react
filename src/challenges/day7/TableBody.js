@@ -2,14 +2,22 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { TableCell } from './TableCell';
 
-export const TableBody = ({ rows, personPropsList }) => (
+export const TableBody = ({ rows, personPropsList, handleSelect }) => (
   <tbody>
     {
-      rows.map((row) => <tr key={uuidv4()}>
-        {
-          personPropsList.map(prop => <TableCell key={uuidv4()} contents={row[prop]}/>)
-        }
-      </tr>)
+      rows.map((row) => (
+        <tr
+          key={uuidv4()}
+          onClick={() => {
+            // console.log('selected', row);
+            handleSelect(row)
+          }}
+          style={{cursor: 'pointer'}}>
+          {
+            personPropsList.map(prop => <TableCell key={uuidv4()} contents={row[prop]}/>)
+          }
+        </tr>
+      ))
     }
   </tbody>
 );

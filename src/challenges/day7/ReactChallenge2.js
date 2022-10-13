@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PeopleTable } from "./PeopleTable";
 import { FormAddPerson } from "./FormAddPerson";
+import { FormEditPerson } from "./FormEditPerson";
 
 export const ReactChallenge2 = () => {
 
@@ -25,6 +26,7 @@ export const ReactChallenge2 = () => {
   ];
 
   const [people, setPeople] = useState(defaultPeople);
+  const [selectedPerson, setSelectedPerson] = useState(null);
 
   const addNewPersonToState = (newPerson) => {
     const copyOfPeople = [...people];
@@ -32,8 +34,32 @@ export const ReactChallenge2 = () => {
     setPeople(copyOfPeople);
   }
 
+  const updatePersonInState = (editedPerson) => {
+    // console.log(`updating array with `, editedPerson);
+    const copyOfPeople = [...people];
+    const originalPersonIndex = copyOfPeople.findIndex((person) => person.id === editedPerson.id);
+    copyOfPeople[originalPersonIndex] = editedPerson;
+    setPeople(copyOfPeople);
+    setSelectedPerson(null);
+  }
+
   return <>
-    <PeopleTable people={people} />
-    <FormAddPerson personAdderFunction={addNewPersonToState} />
+    <PeopleTable
+      people={people}
+      setSelectedPerson={setSelectedPerson}
+    />
+    {
+      selectedPerson ? (
+        <FormEditPerson
+          personToEdit={selectedPerson}
+          personEditorFunction={updatePersonInState}
+          editCancelFunction={() => setSelectedPerson(null)}
+        />
+      ) : (
+        <FormAddPerson
+          personAdderFunction={addNewPersonToState}
+        />
+      )
+    }
   </>
 }

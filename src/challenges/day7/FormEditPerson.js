@@ -34,6 +34,14 @@ export const FormEditPerson = ({personToEdit, personEditorFunction, editCancelFu
 
 return person ? <>
   {/* <button onClick={() => setPerson(null)}>kill person</button> */}
+  {/* <button onClick={() => {
+    setPerson({
+      ...person,
+      firstName: 'kjzxhlvjkdsljkvbdshjlk'
+    })
+  }}>
+    change fn
+  </button> */}
   <form onSubmit={handleSubmit} onReset={handleReset}>
     <fieldset>
       <legend>Edit {personToEdit.fn}</legend>

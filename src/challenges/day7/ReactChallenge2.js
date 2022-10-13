@@ -78,3 +78,11 @@ export const ReactChallenge2 = () => {
     }
   </>
 }
+
+
+// let props = {
+//   personToEdit: selectedPerson
+//   personEditorFunction: updatePersonInState
+//   editCancelFunction: resetSelectedPerson
+// }
+// FormEditPerson(props);

@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { PeopleTable } from "./PeopleTable";
+import { FormAddPerson } from "./FormAddPerson";
 
 export const ReactChallenge2 = () => {
 
-  const people = [
+  const defaultPeople = [
     {
       id: 1,
       firstName: 'Kermit',
       middleName: 'The',
       lastName: 'Frog',
-      age: 100
     },
     {
       id: 2,
@@ -23,5 +24,16 @@ export const ReactChallenge2 = () => {
     },
   ];
 
-  return <PeopleTable people={people} />;
+  const [people, setPeople] = useState(defaultPeople);
+
+  const addNewPersonToState = (newPerson) => {
+    const copyOfPeople = [...people];
+    copyOfPeople.push(newPerson);
+    setPeople(copyOfPeople);
+  }
+
+  return <>
+    <PeopleTable people={people} />
+    <FormAddPerson personAdderFunction={addNewPersonToState} />
+  </>
 }

@@ -1,0 +1,1 @@
+export const Screen1 = () => <p>I am Screen 1</p>;

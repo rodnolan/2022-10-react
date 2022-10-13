@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { CompWithApiData } from './CompWithApiData';
+// import { CompWithApiData } from './CompWithApiData';
 import './index.css';
 // import App from './App';
 // import { App2 } from './App2';
 // import { App2AsClass } from './App2AsClass';
 import reportWebVitals from './reportWebVitals';
+import { RoutingDemo } from './routing/RoutingDemo';
 // import { StylingDemo } from './styling/StylingDemo';
 // import { ReactChallenge2 } from './challenges/day7/ReactChallenge2';
 // import { ReactChallenge1 } from './challenges/day6/ReactChallenge1';
@@ -19,7 +20,8 @@ root.render(
     {/* <App2 /> */}
     {/* <App2AsClass /> */}
     {/* <StylingDemo /> */}
-    <CompWithApiData />
+    {/* <CompWithApiData /> */}
+    <RoutingDemo />
   </React.StrictMode>
 );
 

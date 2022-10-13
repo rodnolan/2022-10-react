@@ -28,7 +28,11 @@ export const ReactChallenge2 = () => {
   const [people, setPeople] = useState(defaultPeople);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
+  const resetSelectedPerson = () => setSelectedPerson(null);
+
   const addNewPersonToState = (newPerson) => {
+
+    // setPeople(people.push(newPerson));
     const copyOfPeople = [...people];
     copyOfPeople.push(newPerson);
     setPeople(copyOfPeople);
@@ -46,14 +50,25 @@ export const ReactChallenge2 = () => {
   return <>
     <PeopleTable
       people={people}
-      setSelectedPerson={setSelectedPerson}
+      setSelectedPerson={
+        (personToEditFromTableRow) => {
+          console.log('setting the selectedPerson state to ', personToEditFromTableRow);
+          // resetSelectedPerson();
+          setSelectedPerson(personToEditFromTableRow)
+        }
+      }
     />
+{/*
+<p>
+  {selectedPerson?.firstName}
+</p> */}
+
     {
       selectedPerson ? (
         <FormEditPerson
           personToEdit={selectedPerson}
           personEditorFunction={updatePersonInState}
-          editCancelFunction={() => setSelectedPerson(null)}
+          editCancelFunction={resetSelectedPerson}
         />
       ) : (
         <FormAddPerson

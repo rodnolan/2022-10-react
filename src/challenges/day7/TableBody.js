@@ -9,7 +9,7 @@ export const TableBody = ({ rows, personPropsList, handleSelect }) => (
         <tr
           key={uuidv4()}
           onClick={() => {
-            // console.log('selected', row);
+            console.log('selected', row);
             handleSelect(row)
           }}
           style={{cursor: 'pointer'}}>

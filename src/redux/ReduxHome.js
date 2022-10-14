@@ -1,4 +1,5 @@
-import { CounterConnector } from "./CounterConnector";
+// import { CounterConnector } from "./CounterConnector";
+import { CounterHC } from "./CounterHC";
 // import { CounterDC } from "./CounterDC";
 
 export const ReduxHome = () => <>
@@ -7,5 +8,6 @@ export const ReduxHome = () => <>
 
 
   {/* <CounterDC counter={10} /> */}
-  <CounterConnector />
+  {/* <CounterConnector /> */}
+  <CounterHC />
 </>

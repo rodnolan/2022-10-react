@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { createChangeCounterByAction, createDecrementAction, createIncrementAction, createMultiplyByTenAction } from './counterActions';
 import { CounterDC } from './CounterDC';
 
+// useSelector()
 const mapStateToProps = (gds) => {
   console.log(gds);
   return ({
@@ -9,6 +10,7 @@ const mapStateToProps = (gds) => {
   })
 }
 
+// useDipatch()
 const mapDispatchToProps = (dispatch) => {
   return {
     incrementCounter: () => dispatch(createIncrementAction()),

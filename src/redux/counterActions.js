@@ -1,4 +1,4 @@
-import { CHANGE_BY, DECREMENT, INCREMENT, MULTIPLY_BY_TEN } from "./allActionTypes";
+import { CHANGE_BY, DECREMENT, INCREMENT, MULTIPLY_BY_TEN, RESET_TO_ZERO } from "./allActionTypes";
 
 export const createIncrementAction = () => ({
   type: INCREMENT
@@ -15,5 +15,9 @@ export const createChangeCounterByAction = (amountToChangeCounterBy) => ({
 
 export const createMultiplyByTenAction = () => ({
   type: MULTIPLY_BY_TEN
+});
+
+export const createResetToZeroAction = () => ({
+  type: RESET_TO_ZERO
 });
 

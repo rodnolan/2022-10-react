@@ -38,21 +38,16 @@ export const ListWithRoutableAddEditRedux = () => {
     } else {
       peopleCopy[indexOfItemToEdit] = person;
       setPeople(peopleCopy);
-      setPersonToEdit();
+      // setPersonToEdit();
     }
 
     console.log('replace the existing object with id ', person.id);
   }
 
 return <>
-    <List
-      people={people}
-      setPersonToEdit={setPersonToEdit}
-    />
+    <List />
 
-    <AddForm
-      personAdderFunction={addPerson}
-    />
+    <AddForm />
 
     {
       personToEdit ? <EditForm

@@ -1,33 +1,33 @@
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { createAddPersonAction } from "./redux/peopleActionCreators";
 
-export const AddForm = ({personAdderFunction}) => {
+export const AddForm = () => {
+
+  const dispatch = useDispatch();
 
   const fnRef = useRef();
   const lnRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target.id)
-    // console.log(event.target.value)
 
     const firstNameValueFromFormField = fnRef.current.value;
     const lastNameValueFromFormField = lnRef.current.value;
-    personAdderFunction({
+    // personAdderFunction({
+    //   fn: firstNameValueFromFormField,
+    //   ln: lastNameValueFromFormField
+    // });
+
+    dispatch(createAddPersonAction({
+      // id: 0,
       fn: firstNameValueFromFormField,
       ln: lastNameValueFromFormField
-    });
+    }))
+
     fnRef.current.value = '';
     lnRef.current.value = '';
   }
-
-  // const handleChange = (event) => {
-  //   console.log(event.target.id)
-  //   console.log(event.target.value)
-  //   console.log({
-  //     [event.target.id]: event.target.value
-  //     }
-  //   )
-  // }
 
   return <>
     <h2>Person Add Form (uncontrolled componnent)</h2>

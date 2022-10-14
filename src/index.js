@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 // import { CompWithApiData } from './CompWithApiData';
 import './index.css';
 // import { ReduxHome } from './redux/ReduxHome';
@@ -9,6 +10,7 @@ import './index.css';
 // import { App2AsClass } from './App2AsClass';
 import reportWebVitals from './reportWebVitals';
 import { ListWithRoutableAddEditRedux } from './routing-and-redux/ListWithRoutableAddEditRedux';
+import { store } from './routing-and-redux/redux/store';
 // import { RoutingDemo } from './routing/RoutingDemo';
 // import { StylingDemo } from './styling/StylingDemo';
 // import { ReactChallenge2 } from './challenges/day7/ReactChallenge2';
@@ -34,7 +36,9 @@ root.render(
       <ReduxHome />
     </Provider> */}
 
-    <ListWithRoutableAddEditRedux />
+    <Provider store={store}>
+      <ListWithRoutableAddEditRedux />
+    </Provider>
 
   </React.StrictMode>
 );

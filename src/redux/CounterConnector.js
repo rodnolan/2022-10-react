@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createChangeCounterByAction, createDecrementAction, createIncrementAction } from './counterActions';
+import { createChangeCounterByAction, createDecrementAction, createIncrementAction, createMultiplyByTenAction } from './counterActions';
 import { CounterDC } from './CounterDC';
 
 const mapStateToProps = (gds) => {
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     incrementCounter: () => dispatch(createIncrementAction()),
     decrementCounter: () => dispatch(createDecrementAction()),
-    changeCounterBy: (num) => dispatch(createChangeCounterByAction(num))
+    changeCounterBy: (num) => dispatch(createChangeCounterByAction(num)),
+    multiplyByTen: () => dispatch(createMultiplyByTenAction())
   }
 }
 
@@ -26,7 +27,8 @@ export const CounterConnector = connect(mapStateToProps, mapDispatchToProps) (Co
  *  incrementCounter={ a function that lets me request to increment the counter variable in the store }
  *  decrementCounter={ a function that lets me request to decrement the counter variable in the store }
  *  changeCounterBy={ a function that lets me request to change the counter variable by a variable amount }
- *
+ *  multiplyByTen={ a function that lets me request to multiply the counter variable by 10 }
+ * />
  *
  *
  */

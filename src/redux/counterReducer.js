@@ -1,4 +1,4 @@
-import { CHANGE_BY, DECREMENT, INCREMENT } from "./allActionTypes"
+import { CHANGE_BY, DECREMENT, INCREMENT, MULTIPLY_BY_TEN } from "./allActionTypes"
 
 const defaultData = {
   counter: 0
@@ -21,6 +21,12 @@ const handleChangeBy = (state, action) => {
   }
 }
 
+const handleMultiplyByTen = (state, action) => {
+  return {
+    counter: state.counter * 10
+  }
+}
+
 export const counterReducer = (state = defaultData, action) => {
   console.log('counterReducer was called with ', action.type);
 
@@ -28,6 +34,7 @@ export const counterReducer = (state = defaultData, action) => {
     [INCREMENT]: handleIncrement,
     [DECREMENT]: handleDecrement,
     [CHANGE_BY]: handleChangeBy,
+    [MULTIPLY_BY_TEN]: handleMultiplyByTen,
   };
 
   const reducerToCall = actionHandlers[action.type];

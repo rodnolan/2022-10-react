@@ -1,4 +1,4 @@
-import { ADD_PERSON } from "./allActionTypes";
+import { ADD_PERSON, UPDATE_PERSON } from "./allActionTypes";
 
 const defaultState = {
   peopleArray: [
@@ -18,7 +18,7 @@ const defaultState = {
       ln: 'Jobs'
     },
   ],
-  personToEdit: null
+
 };
 
 const addPerson = (state, action) => {
@@ -40,11 +40,25 @@ const addPerson = (state, action) => {
 
 }
 
+const updatePerson = (state, action) => {
+
+  const indexOfItemToUpdate = state.peopleArray.findIndex(person => person.id === action.payload.id);
+  const peopleCopy = [...state.peopleArray];
+  peopleCopy[indexOfItemToUpdate] = action.payload;
+
+  return {
+    ...state,
+    peopleArray: peopleCopy
+  }
+
+}
+
 
 export const peopleReducer = (state = defaultState, action) => {
 
   const actionHandlers = {
-    [ADD_PERSON]: addPerson
+    [ADD_PERSON]: addPerson,
+    [UPDATE_PERSON]: updatePerson,
   };
   const reducerToCall = actionHandlers[action.type];
 

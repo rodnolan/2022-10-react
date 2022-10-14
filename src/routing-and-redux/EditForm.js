@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { createUpdatePersonAction } from "./redux/peopleActionCreators";
 
-export const EditForm = ({person, personUpdaterFunction}) => {
+export const EditForm = () => {
 
-  const [personLocal, setPersonLocal] = useState(person);
+  const [personLocal, setPersonLocal] = useState();
+  const {id} = useParams();
+  const people = useSelector(gds => gds.peoplePieSlice.peopleArray)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(
+    () => {
+      if (people && people.length > 0) {
+        const personToEdit = people.find(person => person.id === parseInt(id));
+        console.log(personToEdit);
+        personToEdit && setPersonLocal(personToEdit);
+      }
+    },
+    [id, people]
+  );
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    personUpdaterFunction(personLocal);
+    dispatch(createUpdatePersonAction(personLocal))
+    navigate('/');
   }
 
   const handleChange = (event) => {
@@ -17,7 +37,7 @@ export const EditForm = ({person, personUpdaterFunction}) => {
     });
   }
 
-  return <>
+  return personLocal ? <>
     <h2>Person Edit Form (controlled componnent)</h2>
     <p>{personLocal?.fn} {personLocal?.ln}</p>
 
@@ -28,7 +48,7 @@ export const EditForm = ({person, personUpdaterFunction}) => {
         type="text"
         value={personLocal?.fn}
         onChange={handleChange}
-      />
+      /><br />
 
       <label htmlFor="ln">Last Name</label>
       <input
@@ -36,8 +56,9 @@ export const EditForm = ({person, personUpdaterFunction}) => {
         type="text"
         value={personLocal?.ln}
         onChange={handleChange}
-      />
+      /><br />
+
       <input type="submit" />
     </form>
-  </>;
+  </> : <p>person to edit is not defined</p>;
 }

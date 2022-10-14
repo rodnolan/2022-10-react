@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createAddPersonAction } from "./redux/peopleActionCreators";
 
 export const AddForm = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const fnRef = useRef();
   const lnRef = useRef();
@@ -27,6 +29,8 @@ export const AddForm = () => {
 
     fnRef.current.value = '';
     lnRef.current.value = '';
+
+    navigate('/');
   }
 
   return <>
@@ -38,13 +42,13 @@ export const AddForm = () => {
         id="fn"
         type="text"
         ref={fnRef}
-      />
+      /><br />
       <label htmlFor="ln">Last Name</label>
       <input
         id="ln"
         type="text"
         ref={lnRef}
-      />
+      /><br />
       <input type="submit" />
     </form>
   </>;
